@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Pokedex</title>
+  </head>
+  <body>
+    <h1>Pokemon</h1>
+
+    <script>
+      const fetchPokemon = async () => {
+        try {
+          const response = await fetch("http://localhost:3000/api/pokedex/");
+          if (!response.ok) throw response;
+          const data = await response.json();
+          console.log("data", data);
+        } catch (err) {
+          console.log("err", err);
+        }
+      };
+      fetchPokemon();
+    </script>
+  </body>
+</html>
